@@ -1,0 +1,42 @@
+nodes:
+  - id: 1
+    node_name: Mission
+    node_type: SEQUENCE
+    task: LAND
+    parameters: ""
+    is_recurrent: true
+    activate: false
+    parent: 0
+  - id: 2
+    node_name: Take off
+    node_type: TASK
+    task: TAKE_OFF
+    parameters: ""
+    is_recurrent: false
+    activate: false
+    parent: 1
+  - id: 3
+    node_name: Follow path
+    node_type: TASK
+    task: FOLLOW_PATH
+    parameters: "path: [  [0, 0, 1] ,  [2, 0, 1] , [2, 2, 1],[0,0,1] ]"
+    is_recurrent: false
+    activate: false
+    parent: 1
+  - id: 4
+    node_name: Rotate
+    node_type: TASK
+    task: ROTATE
+    parameters: "angle: 180"
+    is_recurrent: false
+    activate: false
+    parent: 1
+  - id: 5
+    node_name: Land
+    node_type: TASK
+    task: LAND
+    parameters: ""
+    is_recurrent: false
+    activate: false
+    parent: 1
+
