@@ -1,42 +1,37 @@
 nodes:
-  - id: 1
-    node_name: Mission
-    node_type: SEQUENCE
-    task: LAND
-    parameters: ""
-    is_recurrent: true
-    activate: false
+  - node: 1
+    name: Mission
+    type: control_flow
+    subtype: sequence
     parent: 0
-  - id: 2
-    node_name: Take off
-    node_type: TASK
+  - node: 2
+    name: Take off
+    type: execution
+    subtype: task
     task: TAKE_OFF
-    parameters: ""
-    is_recurrent: false
-    activate: false
+    wait_for_completion: false
     parent: 1
-  - id: 3
-    node_name: Follow path
-    node_type: TASK
+  - node: 3
+    name: Follow path
+    type: execution
+    subtype: task
     task: FOLLOW_PATH
     parameters: "path: [  [0, 0, 1] ,  [2, 0, 1] , [2, 2, 1],[0,0,1] ]"
-    is_recurrent: false
-    activate: false
+    wait_for_completion: false
     parent: 1
-  - id: 4
-    node_name: Rotate
-    node_type: TASK
+  - node: 4
+    name: Rotate
+    type: execution
+    subtype: task
     task: ROTATE
     parameters: "angle: 180"
-    is_recurrent: false
-    activate: false
+    wait_for_completion: false
     parent: 1
-  - id: 5
-    node_name: Land
-    node_type: TASK
+  - node: 5
+    name: Land
+    type: execution
+    subtype: task
     task: LAND
-    parameters: ""
-    is_recurrent: false
-    activate: false
+    wait_for_completion: false
     parent: 1
 
