@@ -12,7 +12,7 @@ gnome-terminal  \
 `# Basic Behaviors                                                                             ` \
 `#---------------------------------------------------------------------------------------------` \
 --tab --title "Basic Behaviors" --command "bash -c \"
-roslaunch basic_quadrotor_behaviors basic_quadrotor_behaviors.launch --wait \
+roslaunch basic_quadrotor_behaviors basic_quadrotor_behaviors.launch \
     namespace:=drone$NUMID_DRONE;
 exec bash\"" \
 `#---------------------------------------------------------------------------------------------` \
@@ -79,7 +79,16 @@ roslaunch alphanumeric_viewer alphanumeric_viewer.launch  --wait \
     drone_id_namespace:=drone$NUMID_DRONE;
 exec bash\""  &
 sleep 3
-gnome-terminal \
+gnome-terminal  \
+`#---------------------------------------------------------------------------------------------` \
+`# alphanumeric_viewer                                                                         ` \
+`#---------------------------------------------------------------------------------------------` \
+--tab --title "alphanumeric_behavior_viewer"  --command "bash -c \"
+roslaunch alphanumeric_behavior_viewer alphanumeric_behavior_viewer.launch --wait \
+    drone_id_namespace:=drone$NUMID_DRONE \
+    catalog_path:=${APPLICATION_PATH}/configs/mission/behavior_catalog.yaml;
+exec bash\"" &
+gnome-terminal  \
 `#---------------------------------------------------------------------------------------------` \
 `# Behavior Tree Interpreter                                                                   ` \
 `#---------------------------------------------------------------------------------------------` \
